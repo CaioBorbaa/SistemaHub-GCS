@@ -1,0 +1,121 @@
+sistemashub.tintomax.com.br/reborn/claude/
+│
+├── .htaccess                      # Configurações do Apache para o subdiretório
+├── index.php                      # Redirecionamento para o catálogo principal
+├── login.php                      # Página de login administrativo
+│
+├── assets/                        # Arquivos estáticos
+│   ├── img/                       # Imagens do sistema
+│   │   ├── logo.png               # Logo da empresa
+│   │   ├── background.jpg         # Imagem de fundo
+│   │   └── loading.gif            # Gif de carregamento
+│   │
+│   ├── favicon/                   # Ícones de favoritos
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   │   ├── android-chrome-192x192.png
+│   │   ├── android-chrome-512x512.png
+│   │   ├── apple-touch-icon.png
+│   │   └── site.webmanifest       # Configuração para PWA
+│   │
+│   └── fonts/                     # Fontes utilizadas (opcional)
+│       └── poppins/               # Fonte Poppins
+│           ├── Poppins-Regular.ttf
+│           ├── Poppins-Medium.ttf
+│           ├── Poppins-Bold.ttf
+│           └── Poppins-SemiBold.ttf
+│
+├── config/                        # Arquivos de configuração
+│   ├── config.php                 # Configurações gerais
+│   └── database.php               # Conexão com banco de dados
+│
+├── css/                           # Estilos CSS
+│   ├── core/                      # CSS principal/base
+│   │   ├── variables.css          # Variáveis CSS (cores, espaçamentos)
+│   │   ├── reset.css              # Reset de estilos
+│   │   └── typography.css         # Estilos de tipografia
+│   │
+│   ├── components/                # CSS de componentes
+│   │   ├── navbar.css             # Barra de navegação
+│   │   ├── menu.css               # Menu interativo
+│   │   ├── modal.css              # Modais
+│   │   └── footer.css             # Rodapé
+│   │
+│   └── pages/                     # CSS específico de páginas
+│       ├── login.css              # Página de login
+│       ├── catalogo.css           # Catálogo principal
+│       ├── admin.css              # Painel administrativo
+│       ├── dashboard.css          # Dashboard
+│       ├── sistemas.css           # Status de sistemas
+│       ├── gerenciar.css          # Gerenciamento de itens
+│       └── cadastro.css           # Formulários de cadastro
+│
+├── js/                            # JavaScript
+│   ├── core/                      # JS principal/base
+│   │   └── utils.js               # Funções utilitárias (relógio, etc)
+│   │
+│   ├── components/                # JS de componentes
+│   │   ├── menu.js                # Funcionalidades do menu
+│   │   └── notify.js              # Sistema de notificações
+│   │
+│   └── pages/                     # JS específico de páginas
+│       ├── login.js               # Scripts para a página de login
+│       ├── catalogo.js            # Scripts para o catálogo
+│       ├── admin.js               # Scripts para admin
+│       ├── cadastro.js            # Validação de formulários
+│       ├── ordenacao.js           # Reordenação de itens
+│       └── sistemas.js            # Gestão de status de sistemas
+│
+├── includes/                      # Componentes PHP reutilizáveis
+│   └── components/
+│       ├── header.php             # Cabeçalho HTML (<head>)
+│       ├── navbar.php             # Barra de navegação
+│       ├── footer.php             # Rodapé
+│       └── favicon.php            # Links para favicons (opcional)
+│
+├── modules/                       # Módulos do sistema
+│   ├── admin/                     # Área administrativa
+│   │   ├── admin.php              # Dashboard admin
+│   │   ├── cadastroProj.php       # Cadastro de projetos
+│   │   ├── cadNotify.php          # Cadastro de notificações
+│   │   ├── editar.php             # Edição de item
+│   │   ├── editarProjs.php        # Gerenciar projetos
+│   │   ├── editarForn.php         # Gerenciar fornecedores
+│   │   ├── editarComercial.php    # Gerenciar área comercial
+│   │   ├── sistemas.php           # Status de sistemas
+│   │   ├── getProjetoData.php     # Obtenção de dados de projeto
+│   │   ├── projetoDB.php          # Processamento de cadastro
+│   │   ├── deleteDB.php           # Exclusão de itens
+│   │   ├── updateProjetoDB.php    # Atualização de itens
+│   │   ├── notifyDB.php           # Processamento de notificações
+│   │   ├── atualizarOrdem.php     # Atualização de ordem
+│   │   └── serverCheck.php        # Controle de status de servidores
+│   │
+│   ├── auth/                      # Autenticação
+│   │   ├── auth.php               # Funções de autenticação
+│   │   ├── loginDB.php            # Processamento de login
+│   │   └── atualizar_sessao.php   # Atualização de sessão
+│   │
+│   ├── catalogo/                  # Catálogo principal
+│   │   └── index.php              # Página inicial do catálogo
+│   │
+│   ├── comercial/                 # Área comercial
+│   │   └── index.php              # Página da área comercial
+│   │
+│   ├── administrativo/            # Área administrativa
+│   │   └── index.php              # Página da área administrativa
+│   │
+│   ├── logistica/                 # Área de logística
+│   │   └── index.php              # Página da área de logística
+│   │
+│   ├── fornecedores/              # Área de fornecedores
+│   │   └── index.php              # Página de fornecedores
+│   │
+│   ├── estatistica/               # Estatísticas
+│   │   ├── relatorio.php          # Geração de relatórios
+│   │   └── registrar_cliques.php  # Registro de cliques
+│   │
+│   └── notificacao/               # Sistema de notificações
+│       └── getNotify.php          # Obtenção de notificações
+│
+└── vendor/                        # Bibliotecas externas (opcional)

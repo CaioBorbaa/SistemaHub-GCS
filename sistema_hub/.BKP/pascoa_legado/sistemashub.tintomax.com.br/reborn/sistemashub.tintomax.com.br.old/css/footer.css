@@ -1,0 +1,13 @@
+.footer {
+    width: 100%;
+    position: fixed; /* Fixa o rodapé no final da página */
+    bottom: 0; /* Alinha o rodapé na parte inferior da página */
+    background-color: #b5b5b500; /* Cor de fundo do rodapé */
+    color: #9b9b9b; /* Cor do texto do rodapé */
+    text-align: center; /* Centraliza o texto no rodapé */
+    padding: 10px 0; /* Adiciona um pouco de preenchimento acima e abaixo do texto */
+    font-size: 14px; /* Tamanho da fonte do texto */
+    /* border-top: 1px solid #ccc; */ /* Adiciona uma borda superior para separar o rodapé do conteúdo */
+    font-weight: bold;
+}
+

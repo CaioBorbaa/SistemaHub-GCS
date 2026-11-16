@@ -1,0 +1,47 @@
+# ------------------------------------------------------------------
+# Segredos: NUNCA versionar (senhas do banco, chaves de API, sessão)
+# ------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+# conexão do PHP legado tem usuário e senha do banco escritos no código
+**/conexao/conexao.php
+
+# ------------------------------------------------------------------
+# Dependências e arquivos gerados (recriados com npm install / build)
+# ------------------------------------------------------------------
+node_modules/
+dist/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# ------------------------------------------------------------------
+# Dados do servidor (enviados pelo painel; não são código)
+# ------------------------------------------------------------------
+hub_react/backend/uploads/*
+!hub_react/backend/uploads/banners/
+hub_react/backend/uploads/banners/*
+!hub_react/backend/uploads/banners/.gitkeep
+
+# ------------------------------------------------------------------
+# Backups compactados e logs do servidor antigo
+# (os .zip são cópias das pastas do .BKP e também contêm as senhas)
+# ------------------------------------------------------------------
+*.zip
+error_log
+*.log
+
+# ------------------------------------------------------------------
+# Sistema operacional / editor
+# ------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Repositórios Git que vieram dentro do backup legado: o histórico original
+# foi preservado como .git_original (fora do repositório)
+.git_original/

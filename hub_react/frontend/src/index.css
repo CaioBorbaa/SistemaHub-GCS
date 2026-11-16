@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+/* Cores da marca — use como bg-brand, text-brand-dark, ring-brand etc. */
+@theme {
+  --color-brand: #ff7b00;
+  --color-brand-dark: #ea580c;
+  --color-brand-darker: #c2410c;
+  --color-brand-soft: #fff4e8;
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --animate-fade-in: fade-in 0.35s ease-out both;
+  --animate-pop-in: pop-in 0.2s ease-out both;
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* --- Temas comemorativos (src/temas) --- */
+  --animate-atravessar: atravessar 26s linear infinite; /* personagem no cabeçalho */
+  --animate-voo: voo 2.4s ease-in-out infinite;        /* trenó subindo e descendo */
+
+  /*
+   * DESEMPENHO: as animações contínuas usam só transform/opacity com valores fixos
+   * (sem var() e sem left/top), para rodarem na placa de vídeo sem recalcular a página
+   * a cada quadro. Por isso existem variações fixas de queda (cair-1..4) e de fagulha
+   * (keyframes no fim do arquivo).
+   */
+  /* personagem cruzando o topo: translateX (placa de vídeo) em vez de animar "left" */
+  @keyframes atravessar {
+    from { transform: translate3d(-340px, 0, 0); }
+    to { transform: translate3d(100vw, 0, 0); }
+  }
+  @keyframes voo {
+    0%, 100% { transform: translateY(2px) rotate(-1deg); }
+    50% { transform: translateY(-3px) rotate(1deg); }
+  }
+
+  /* Ovos de Páscoa pendurados: balanço leve parado, pêndulo ao passar o mouse */
+  --animate-balanco-suave: balanco-suave 4s ease-in-out infinite;
+  --animate-pendulo: pendulo 2s ease-out;
+  @keyframes balanco-suave {
+    0%, 100% { transform: rotate(-2.5deg); }
+    50% { transform: rotate(2.5deg); }
+  }
+  @keyframes pendulo {
+    0% { transform: rotate(0deg); }
+    12% { transform: rotate(24deg); }
+    30% { transform: rotate(-18deg); }
+    48% { transform: rotate(12deg); }
+    66% { transform: rotate(-7deg); }
+    82% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Saco de presentes (Natal): cutucada de vez em quando e chacoalho no clique */
+  --animate-cutucar: cutucar 7s ease-in-out infinite;
+  --animate-chacoalhar: chacoalhar 0.6s ease-in-out;
+  @keyframes cutucar {
+    0%, 84%, 100% { transform: rotate(0deg); }
+    87% { transform: rotate(-4deg); }
+    90% { transform: rotate(3.5deg); }
+    93% { transform: rotate(-2deg); }
+    96% { transform: rotate(1deg); }
+  }
+  @keyframes chacoalhar {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    15% { transform: rotate(-9deg) scale(1.04, 0.96); }
+    35% { transform: rotate(8deg) scale(0.97, 1.03); }
+    55% { transform: rotate(-6deg); }
+    75% { transform: rotate(3deg); }
+  }
+
+  /* Festas Junina/Julina e Halloween */
+  --animate-ioio: ioio 3.4s ease-in-out infinite;                  /* aranha pendurada */
+  --animate-recolher: recolher 1.5s ease-in-out;                   /* aranha sobe ao passar o mouse */
+  @keyframes ioio {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(12px); }
+  }
+  @keyframes recolher {
+    0% { transform: translateY(0); }
+    30%, 62% { transform: translateY(var(--sobe, -80px)); }
+    100% { transform: translateY(0); }
+  }
+  /* espantalho balançando ao vento e o corvo mexendo a cabeça */
+  --animate-vento: vento 5s ease-in-out infinite alternate;
+  @keyframes vento {
+    from { transform: rotate(-1.6deg); }
+    to { transform: rotate(1.6deg); }
+  }
+
+  /* Fogos de artifício no cabeçalho (Ano Novo) */
+  --animate-foguete: foguete linear infinite;
+  --animate-estourar: estourar cubic-bezier(0.15, 0.75, 0.3, 1) infinite;
+  --animate-clarao: clarao ease-out infinite;
+  @keyframes foguete {
+    0% { transform: translateY(80px); opacity: 0; }
+    4% { opacity: 1; }
+    30% { transform: translateY(0); opacity: 1; }
+    32%, 100% { transform: translateY(0); opacity: 0; }
+  }
+  /* o anel de faíscas inteiro cresce a partir do centro e some (sincronizado com o foguete) */
+  @keyframes estourar {
+    0%, 30% { transform: scale(0.15); opacity: 0; }
+    33% { opacity: 1; }
+    72% { opacity: 0.9; }
+    100% { transform: scale(1); opacity: 0; }
+  }
+  @keyframes clarao {
+    0%, 29% { transform: scale(0); opacity: 0; }
+    32% { transform: scale(1); opacity: 0.9; }
+    50%, 100% { transform: scale(1.8); opacity: 0; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-gray-100 text-gray-800 antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb { background: #b0b0b0; border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: #777; }
+}
+
+/*
+ * Keyframes usados direto no style (ex.: animation: cair-1 ...). Ficam fora do @theme porque
+ * o Tailwind só publica os keyframes do @theme que tenham uma classe animate-* em uso.
+ */
+@keyframes cair-1 {
+  from { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+  to { transform: translate3d(34px, 105vh, 0) rotate(0deg); }
+}
+@keyframes cair-2 {
+  from { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+  to { transform: translate3d(-38px, 105vh, 0) rotate(0deg); }
+}
+@keyframes cair-3 {
+  from { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+  to { transform: translate3d(26px, 105vh, 0) rotate(320deg); }
+}
+@keyframes cair-4 {
+  from { transform: translate3d(0, -5vh, 0) rotate(0deg); }
+  to { transform: translate3d(-30px, 105vh, 0) rotate(-260deg); }
+}
+/* animação quadro a quadro (componente Quadros): cada camada aparece 1/N do tempo */
+@keyframes quadros-2 {
+  0% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes quadros-3 {
+  0% { opacity: 1; }
+  33.333%, 100% { opacity: 0; }
+}
+/* fagulhas da fogueira */
+@keyframes subir {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(10px, -62px) scale(0.4); opacity: 0; }
+}
+@keyframes subir-2 {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(-12px, -78px) scale(0.4); opacity: 0; }
+}
+/* brilhos quando um presente sai do saco */
+@keyframes estouro {
+  0% { transform: translateX(0) scale(1); opacity: 1; }
+  80% { opacity: 0.9; }
+  100% { transform: translateX(72px) scale(0.4); opacity: 0; }
+}
+
+/* Enfeites fora da tela (ou da aba em segundo plano) ficam com as animações pausadas */
+[data-pausado], [data-pausado] * {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,78 @@
+# Deploy: main -> staging (automático) -> production (aprovação obrigatória).
+#
+# O environment "production" tem @CaioBorbaa como REVISOR OBRIGATÓRIO
+# (Settings > Environments > production > Required reviewers). Por isso o job
+# "Deploy - Production" fica parado em "Waiting" até a aprovação manual.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build do front-end
+        working-directory: hub_react/frontend
+        run: npm ci && npm run build
+      - name: Monta o pacote (API + site compilado)
+        run: |
+          mkdir -p pacote
+          cp -r hub_react/backend pacote/backend
+          cp -r hub_react/frontend/dist pacote/frontend-dist
+          rm -rf pacote/backend/node_modules
+          echo "${GITHUB_SHA}" > pacote/VERSAO.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hub-${{ github.sha }}
+          path: pacote
+          retention-days: 30
+
+  staging:
+    name: Deploy - Staging
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: hub-${{ github.sha }}
+          path: pacote
+      - name: Publica em staging
+        run: |
+          echo "Publicando commit $(cat pacote/VERSAO.txt) em STAGING"
+          # Aqui entra o comando real de publicação (ex.: rsync/ssh para o servidor
+          # de homologação usando os secrets do environment staging).
+          # Ex.: rsync -az pacote/ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/srv/hub-staging"
+
+  production:
+    name: Deploy - Production
+    needs: staging
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: hub-${{ github.sha }}
+          path: pacote
+      - name: Publica em produção
+        run: |
+          echo "Publicando commit $(cat pacote/VERSAO.txt) em PRODUCTION"
+          echo "Aprovado por revisor obrigatório do environment production."
+          # Ex.: rsync -az pacote/ "${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/srv/hub"

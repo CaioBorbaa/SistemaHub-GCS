@@ -1,0 +1,16 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^sistemashub\.tintomax\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sistemashub\.tintomax\.com\.br$
+RewriteRule ^/?$ "https\:\/\/sistemashub\.tintomax\.com\.br\/usuario\/catalogo\.php" [R=301,L]
+RewriteCond %{HTTP_HOST} ^sistemashub\.tintomax\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sistemashub\.tintomax\.com\.br$
+RewriteRule ^catalogo\.html$ "https\:\/\/sistemashub\.tintomax\.com\.br\/usuario\/catalogo\.php" [R=301,L]
+RewriteCond %{HTTP_HOST} ^sistemashub\.tintomax\.com\.br$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.sistemashub\.tintomax\.com\.br$
+RewriteRule ^catalogo\.php$ "https\:\/\/sistemashub\.tintomax\.com\.br\/usuario\/catalogo\.php" [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+

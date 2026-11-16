@@ -1,0 +1,10 @@
+.footer {
+    background-color: #ff7b0000; /* Cor de fundo do rodapé */
+    color: #817d7d; /* Cor do texto do rodapé */
+    text-align: center; /* Centraliza o texto no rodapé */
+    font-size: 14px; /* Tamanho da fonte do texto */
+    font-weight: bold;
+    margin-top: -17px;
+    margin-bottom: 10px;
+
+}

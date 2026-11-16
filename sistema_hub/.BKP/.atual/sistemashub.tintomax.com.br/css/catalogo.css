@@ -1,0 +1,357 @@
+/* Estilos Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 12.5px;
+    color: orange;
+    /*background-image: url("../assets/teste.jpg");*/
+	background-position: center; /* Centraliza a imagem de fundo */
+	background-repeat: no-repeat; /* Impede a repetição da imagem */
+	background-size: cover; /* Faz a imagem cobrir totalmente o espaço disponível */
+    background-color: #F5F5F5;
+
+
+}
+
+.video-background {
+    position: fixed; /* Ou 'absolute' se você não quiser que ele fique fixo durante a rolagem */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Coloca o vídeo atrás de todo o conteúdo da página */
+}
+
+#myVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+#backgroundVideo {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+.video-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0); /* Cor de fundo com opacidade */
+    backdrop-filter: blur(3px);
+}
+
+
+/*Style scrollbar*/
+
+/*
+ *  STYLE 1
+ */
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+.scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 65px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+}
+
+#wrapper
+{
+	text-align: center;
+	width: 500px;
+	margin: auto;
+}
+
+/*----*/
+
+body p span {
+    font: 700 4em/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: .15em 0 .225em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 40px rgba(255, 183, 16, 0.264);
+    color: #ff7b00;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+header {
+    padding: 0 auto;
+    border-bottom: 0px solid #333;
+    font-weight: 700; 
+    margin-bottom: 2%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ff7b00;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-left, .navbar-right {
+flex: 1;
+}
+
+.navbar-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+}
+
+.page-subtitle {
+    margin: 0;
+    font-weight: 500;
+    font-size: large;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.itens {
+    display: inline-block;
+    margin: 15px 30px;
+}
+
+.itens:hover {
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+.poster {
+    border-radius: 20%;
+    width: 170px;
+    height: 170px;
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+a {
+    text-decoration: none;
+    font: "Oswald", sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+h2 {
+    color: rgb(35, 35, 35); /* Cor do texto */
+    /*
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.5), /* Sombra para a direita e para baixo *
+        -2px -2px 4px rgba(0,0,0,0.5), /* Sombra para a esquerda e para cima *
+        2px -2px 4px rgba(0,0,0,0.5), /* Sombra para a direita e para cima *
+        -2px 2px 4px rgba(0,0,0,0.5); /* Sombra para a esquerda e para baixo */
+}
+
+
+
+
+/*widget dos climas*/
+.weather-widget-container {
+    display: flex; 
+    justify-content: space-around; /* Espaçamento ao redor dos itens */
+    align-items: center; /* Alinha os itens verticalmente */
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f3f3f36d;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    margin-bottom: 2.10%;
+ 
+}
+
+.weather-widget-container a {
+    flex: 1; /* Distribui o espaço igualmente entre os links */
+    text-align: center; /* Centraliza o texto dentro de cada link */
+    margin: 0 10px; /* Adiciona margem entre os widgets */
+    max-height: 1%;
+}
+  
+  /*barra divisória do widgets*/
+.weather-widget-container a:not(:first-child) {
+    border-left: 2px solid #ff7b00;
+    margin-left: 20px; /* Ajuste para mais espaço em torno da borda */
+    padding-left: 20px; /* Ajuste para mais espaço em torno da borda */
+}
+
+time {
+    border: 1px solid #f7f7f700;
+    padding: 4px 12px;
+    background-color: #c4501a6e;
+    color: #f7f7f7;
+    font-size: 2em;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.loading {
+    background-image: url('assets/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Estilos para dispositivos móveis (telefones) */
+@media only screen and (max-width: 600px) {
+    .navbar, .navbar-center {
+        flex-direction: column;
+    }
+    .logo {
+        width: 120px; /* Tamanho menor do logo para telas pequenas */
+    }
+    .poster {
+        width: 120px; /* Tamanho menor dos posters */
+        height: 120px; /* Mantém a proporção */
+    }
+    .itens {
+        margin: 10px 15px; /* Espaçamento menor entre os itens */
+    }
+    .area-comercial-btn {
+        padding: 5px 10px; /* Padding menor */
+        font-size: 14px; /* Tamanho de fonte menor */
+    }
+    .weather-widget-container {
+        flex-direction: column;
+    }
+    .weather-widget-container a {
+        margin-bottom: 10px;
+    }
+    .containerCat { /* Posição do gato ajustada para dispositivos móveis */
+        width: 280px; /* Largura ajustada */
+        right: 10px; /* Menos margem da direita */
+        bottom: 10px; /* Menos margem de baixo */
+    }
+}
+
+/* Estilos para tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .logo {
+        width: 140px;
+    }
+    .poster {
+        width: 243px;
+        height: 243px;
+    }
+    .itens {
+        margin: 12px 25px;
+    }
+    .area-comercial-btn {
+        padding: 7px 15px;
+        font-size: 15px;
+    }
+    .containerCat { /* Ajustando posição para tablets */
+        width: 300px; /* Largura ajustada */
+        right: 20px; /* Margem direita ajustada */
+        bottom: 20px; /* Margem de baixo ajustada */
+    }
+}
+
+/* Estilos para desktops e dispositivos maiores */
+@media only screen and (min-width: 1025px) {
+    .logo {
+        width: 160px;
+    }
+    .poster {
+        width: 170px; /* Tamanho original */
+        height: 170px; /* Tamanho original */
+    }
+    .itens {
+        margin: 15px 30px;
+    }
+    .area-comercial-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .containerCat { /* Posição original para desktops */
+        width: 350px; /* Largura original */
+        right: 30px; /* Margem direita original */
+        bottom: 30px; /* Margem de baixo original */
+    }
+}
+
+
+
+.area-comercial-btn {
+    display: inline-block; /* ou 'block', dependendo do layout desejado */
+    padding: 10px 20px; /* Ajuste o padding conforme necessário */
+    background-color: #3B4A9B; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    text-align: center; /* Alinha o texto no centro */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho do texto */
+    transition: background-color 0.3s; /* Efeito de transição para hover */
+}
+
+.area-comercial-btn:hover {
+    background-color: #417b5a; /* Cor de fundo ao passar o mouse */
+    color: #ffffff; /* Cor do texto ao passar o mouse */
+}
+
+.titulo-fornecedores {
+    color: #666769; /* Muda a cor do texto */
+    text-align: center; /* Centraliza o texto */
+    font-family: Arial, sans-serif; /* Muda a fonte do texto */
+    font-size: 42px;
+    margin-top: 12px;
+    margin-bottom: -31px;
+}
+

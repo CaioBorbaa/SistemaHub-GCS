@@ -1,0 +1,336 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Cores da Marca --- */
+.bg-brand-orange {
+    background-color: #ff7b00 !important;
+}
+
+/* --- Estilos do Header --- */
+header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* --- Estilos do Relógio --- */
+#clock {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+/* --- Estilos do Clima no Header --- */
+#local-weather {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Estilos da Área do Banner --- */
+.banner-area {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* --- Estilos dos Botões de Categoria --- */
+.category-button {
+    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-button.active {
+    background-color: #3b82f6 !important;
+    color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Estilos dos Cards do Sistema --- */
+.system-card {
+    border-radius: 20% !important;
+    width: 130px;
+    height: 130px;
+    transition: transform 0.5s ease;
+    /* Remove qualquer sombra ou background */
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.system-card:hover {
+    transform: scale(1.2) !important;
+}
+
+.system-card img {
+    border-radius: 20%;
+    object-fit: cover;
+    /* Remove qualquer background, borda ou sombra */
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    /* Garante que a imagem ocupe todo o espaço disponível */
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* --- Estilos dos Títulos das Seções --- */
+h2.section-title {
+    color: #374151;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+/* --- Estilos da Sanfona Geral --- */
+.accordion-button {
+    background-color: #f3f4f6;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.accordion-button:hover {
+    background-color: #e5e7eb;
+}
+
+.accordion-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* --- Estilos do Footer --- */
+footer {
+    background-color: #ff7b00 !important;
+    color: white;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/* --- Grid Responsivo Personalizado --- */
+.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    column-gap: 3.5rem; 
+    row-gap: 1.5rem;
+    justify-items: center;
+    padding: 0 0.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* --- NOVO: Centralização Absoluta da Logo --- */
+.header-logo-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- Responsividade --- */
+@media (max-width: 1400px) {
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
+    
+    .system-card {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.75rem;
+        padding: 0 1.5rem;
+    }
+    
+    .system-card {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .category-button {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #clock span {
+        font-size: 1.5rem !important;
+        padding: 0.75rem 1rem;
+    }
+    
+    #local-weather div {
+        font-size: 0.875rem;
+    }
+    
+    .banner-area {
+        height: 6rem; /* Menor em mobile */
+        margin-top: 0.5rem;
+    }
+    
+    .search-input {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .system-card {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .system-card:hover {
+        transform: scale(1.1) !important;
+    }
+    
+    .category-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1.25rem;
+        padding: 0 0.75rem;
+    }
+    
+    .system-card {
+        width: 120px;
+        height: 120px;
+    }
+    
+    h2.section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .system-card {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .category-button {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+/* --- Animações --- */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* --- Estilo para loading/carregamento --- */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #ff7b00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- Indicadores de status --- */
+.status-online {
+    color: #22c55e;
+}
+
+.status-offline {
+    color: #ef4444;
+}
+
+/* --- Scrollbar customizada --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* --- Transições suaves para Alpine.js --- */
+[x-cloak] {
+    display: none !important;
+}
+
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* --- Remove qualquer padding/margin indesejado das imagens --- */
+.system-card img {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block;
+}
+
+/* --- Garante que as imagens não tenham background --- */
+img {
+    background-color: transparent !important;
+}

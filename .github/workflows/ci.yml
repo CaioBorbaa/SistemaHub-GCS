@@ -1,0 +1,49 @@
+# Integração contínua: roda em todo Pull Request e em todo push na main.
+# Os nomes dos jobs ("CI - Backend" e "CI - Frontend") são os checks
+# obrigatórios configurados na proteção da branch main.
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: CI - Backend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hub_react/backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: hub_react/backend/package-lock.json
+      - run: npm ci
+      - name: Verifica a sintaxe de todos os arquivos .js
+        run: |
+          find src scripts -name '*.js' -print0 | xargs -0 -n1 node --check
+          echo "Sintaxe OK"
+
+  frontend:
+    name: CI - Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: hub_react/frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: hub_react/frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build

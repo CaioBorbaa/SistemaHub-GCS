@@ -1,0 +1,9 @@
+# Donos do código — o GitHub pede revisão automaticamente a estas pessoas em todo PR.
+# Projeto individual: o dono é o responsável por todos os itens de configuração.
+# Quando houver um par de revisão, acrescente o usuário dele (com permissão Write) nas linhas abaixo.
+*                       @CaioBorbaa
+
+# Itens de configuração sensíveis: plano de GCS, pipelines e regras do repositório
+/docs/gcs/              @CaioBorbaa
+/.github/               @CaioBorbaa
+/scripts/github/        @CaioBorbaa

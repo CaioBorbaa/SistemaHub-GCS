@@ -1,0 +1,65 @@
+.btn-Server {
+    padding: 7px 9px;
+    right: 10%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-block: 10%;
+    font-size: 16px; /* Adiciona tamanho de fonte para consistência */
+    margin-left: 10px; /* Adiciona margem à esquerda para separar do indicador */
+}
+
+.ativo {
+    background-color: green;
+}
+
+.desativado {
+    background-color: red;
+}
+
+.inativo{
+    background-color: gray;
+}
+
+.indicador {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle; /* Alinha verticalmente com o texto */
+}
+
+.ativo-indicador {
+    background-color: green;
+}
+
+.desativado-indicador {
+    background-color: red;
+}
+
+.inativo-indicador{
+    background-color: gray;
+}
+
+.containerList {
+    width: 100%;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Espaça os elementos uniformemente */
+    align-items: center;
+    padding: 15px;
+    gap: 20px; /* Adiciona espaço entre os elementos */
+}
+
+.containerFundo{
+    border-radius: 10px; 
+    padding: 20px;
+    margin-bottom: 20px;
+    width: calc(19% - 0px);
+    box-shadow: 0 0px 8px rgb(0, 0, 0); /* Sombra sutil */
+    background-color: rgba(0, 0, 0, 0.337); /* Cor de fundo com opacidade */
+    backdrop-filter: blur(20px);
+
+
+}

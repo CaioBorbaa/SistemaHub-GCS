@@ -1,0 +1,196 @@
+body {
+    overflow: hidden;
+  }
+  
+
+.admin-dashboard {
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.dashboard-widgets {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.widget {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: calc(25% - 45px); /* Ajuste para 4 widgets por linha com espaço */
+}
+
+.widget h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.widget-projetos{
+    width: 452px;
+}
+
+.widget-ip{
+    width: auto;
+    max-width: 360px;
+    overflow-y: auto; /* Cria uma barra de rolagem se o conteúdo exceder a altura */
+}
+
+.widget-status{
+    width: auto;
+    max-width: 360px;
+}
+
+.acessos-lista {
+    list-style: none;
+    padding: 0;
+    max-height: 500px; /* Ajuste conforme necessário */
+    width: auto;
+    overflow-y: auto; /* Cria uma barra de rolagem se o conteúdo exceder a altura */
+}
+
+.acessos-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+
+.acessos-item:last-child {
+    border-bottom: none;
+}
+
+.projeto-nome {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 10px;
+    flex: 1; /* Garante que o nome ocupe o espaço disponível */
+    color: black;
+}
+
+.projeto-acessos {
+    margin-right: 15px;
+    color: #666;
+}
+
+.projeto-imagem {
+    width: 18%;
+    height: 18%; /* Torna a altura igual à largura para manter a proporção */
+    border-radius: 50%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem perder a proporção */
+    margin-right: 30px;
+}
+
+.projeto-link {
+    margin-left: auto; /* Empurra o link para a direita */
+    margin-right: 6px;
+    background-color: #0056b3;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    white-space: nowrap; /* Evita que o texto do link quebre em várias linhas */
+}
+
+.projeto-link:hover {
+    background-color: #FF7B00;
+}
+
+/* Adaptação para telas menores */
+@media (max-width: 768px) {
+    .dashboard-widgets {
+        justify-content: center;
+    }
+
+    .widget {
+        width: 100%; /* Faz com que cada widget ocupe toda a largura da tela em dispositivos pequenos */
+        margin-bottom: 20px;
+    }
+
+    .acessos-item {
+        flex-direction: column; /* Organiza os itens do widget em uma coluna em dispositivos pequenos */
+        align-items: start;
+    }
+
+    .projeto-link {
+        margin-left: 0; /* Remove o espaçamento à esquerda para alinhamento correto */
+        margin-top: 10px; /* Adiciona espaço acima do link em dispositivos pequenos */
+    }
+}
+
+/* Estiliza a barra de rolagem */
+.acessos-lista::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+}
+
+/* Estiliza a trilha da barra de rolagem */
+.acessos-lista::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor de fundo da trilha */
+    border-radius: 10px; /* Arredondamento das bordas da trilha */
+    margin: 4px; /* Espaço entre a trilha e o conteúdo interno */
+}
+
+/* Estiliza o manipulador da barra de rolagem */
+.acessos-lista::-webkit-scrollbar-thumb {
+    background: #888; /* Cor de fundo do manipulador */
+    border-radius: 8px; /* Arredondamento das bordas do manipulador */
+    border: 2px solid #f1f1f1; /* Cria um 'espaço' entre a trilha e o manipulador */
+}
+
+/* Estiliza o manipulador da barra de rolagem ao passar o mouse */
+.acessos-lista::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor de fundo do manipulador ao passar o mouse */
+}
+
+
+.sistema-status {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Alinha os itens no começo */
+    margin-bottom: 20px; /* Espaço abaixo de cada sistema */
+    color: black;
+}
+
+.sistema-nome {
+    color: black;
+    font-size: 20px;
+    flex: 1; /* Ocupa o espaço disponível, mas pode ser comprimido */
+    min-width: 100px; /* Define uma largura mínima */
+    word-break: break-all; /* Quebra palavras longas para evitar overflow */
+}
+
+.sistema-indicador {
+    width: 20px; /* Tamanho do indicador */
+    height: 20px; /* Tamanho do indicador */
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+    flex: none; /* Não permite que o indicador cresça ou encolha */
+}
+
+.sistema-estado {
+    color: black;
+    flex: none; /* Não permite que o estado cresça ou encolha */
+    min-width: 80px; /* Define uma largura mínima */
+    text-align: center; /* Centraliza o texto do estado */
+    margin-right: 33px;
+    font-size: 18px;
+}
+
+.ativo, .inativo {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.ativo {
+    background-color: green;
+}
+
+.inativo {
+    background-color: red;
+}
