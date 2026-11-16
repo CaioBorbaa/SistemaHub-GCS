@@ -1,0 +1,16 @@
+# Evidência: push direto na main recusado
+# Data: 16/11/2026 18:15:58
+# Repositório: https://github.com/CaioBorbaa/SistemaHub-GCS.git
+# Usuário git: mathias
+# Comando: git push origin main
+
+remote: error: GH006: Protected branch update failed for refs/heads/main.        
+remote: 
+remote: - Changes must be made through a pull request.        
+remote: 
+remote: - 2 of 2 required status checks are expected.        
+To https://github.com/CaioBorbaa/SistemaHub-GCS.git
+ ! [remote rejected] main -> main (protected branch hook declined)
+error: failed to push some refs to 'https://github.com/CaioBorbaa/SistemaHub-GCS.git'
+
+# Código de saída do git push: 1 (diferente de 0 = recusado)
